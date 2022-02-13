@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="Hello">Hello World, Click Me!</string>
+  <string name="ApplicationName">AppDetagavos</string>
+  <string name="planet_prompt">Seleccione un cultivo</string>
+
+  <string name="openCamera">Aceptar</string>
+  <string name="nuevo">Generar</string>
+  <string name="salir">Restaurar</string>
+  <string name="app_name">CameraAppDemo</string>
+</resources>

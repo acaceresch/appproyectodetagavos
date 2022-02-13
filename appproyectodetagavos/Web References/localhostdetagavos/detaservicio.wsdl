@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://detagavos.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://detagavos.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://detagavos.org/">
+      <s:element name="validarusuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validarusuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="validarusuariosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sabersiexisteusuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dni" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sabersiexisteusuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sabersiexisteusuariosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarusuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dni" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellidos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarusuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarusuariosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="llenardgusuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="llenardgusuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="llenardgusuariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarusuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dni" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellidos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarusuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="actualizarusuariosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarusuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dni" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarusuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliminarusuariosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarcultivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarcultivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarcultivoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarcultivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombrenuevo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarcultivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="actualizarcultivoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eleminarcultivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eleminarcultivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eleminarcultivoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="llenardgcultivos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="llenardgcultivosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="llenardgcultivosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sabersiexistecultivos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sabersiexistecultivosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sabersiexistecultivosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarplaga">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cura" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarplagaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarplagaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarplaga">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombrenuevo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cura" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarplagaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="actualizarplagaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eleminarplaga">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eleminarplagaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eleminarplagaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="llenardgplaga">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="llenardgplagaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="llenardgplagaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sabersiexisteplaga">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sabersiexisteplagaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sabersiexisteplagaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarsintoma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imagen" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="plaga" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarsintomaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarsintomaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarsintoma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="plaga" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarsintomaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="actualizarsintomaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarsintoma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarsintomaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliminarsintomaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="llenardgsintomas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="plaga" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="llenardgsintomasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="llenardgsintomasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Llenarcultivos">
+        <s:complexType />
+      </s:element>
+      <s:element name="LlenarcultivosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LlenarcultivosResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="algoritmodecomparacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imagen" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="algoritmodecomparacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="algoritmodecomparacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="validarusuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:validarusuarios" />
+  </wsdl:message>
+  <wsdl:message name="validarusuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:validarusuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="sabersiexisteusuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:sabersiexisteusuarios" />
+  </wsdl:message>
+  <wsdl:message name="sabersiexisteusuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:sabersiexisteusuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarusuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarusuarios" />
+  </wsdl:message>
+  <wsdl:message name="insertarusuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarusuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="llenardgusuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:llenardgusuarios" />
+  </wsdl:message>
+  <wsdl:message name="llenardgusuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:llenardgusuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualizarusuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:actualizarusuarios" />
+  </wsdl:message>
+  <wsdl:message name="actualizarusuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:actualizarusuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarusuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarusuarios" />
+  </wsdl:message>
+  <wsdl:message name="eliminarusuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarusuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarcultivoSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarcultivo" />
+  </wsdl:message>
+  <wsdl:message name="insertarcultivoSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarcultivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualizarcultivoSoapIn">
+    <wsdl:part name="parameters" element="tns:actualizarcultivo" />
+  </wsdl:message>
+  <wsdl:message name="actualizarcultivoSoapOut">
+    <wsdl:part name="parameters" element="tns:actualizarcultivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="eleminarcultivoSoapIn">
+    <wsdl:part name="parameters" element="tns:eleminarcultivo" />
+  </wsdl:message>
+  <wsdl:message name="eleminarcultivoSoapOut">
+    <wsdl:part name="parameters" element="tns:eleminarcultivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="llenardgcultivosSoapIn">
+    <wsdl:part name="parameters" element="tns:llenardgcultivos" />
+  </wsdl:message>
+  <wsdl:message name="llenardgcultivosSoapOut">
+    <wsdl:part name="parameters" element="tns:llenardgcultivosResponse" />
+  </wsdl:message>
+  <wsdl:message name="sabersiexistecultivosSoapIn">
+    <wsdl:part name="parameters" element="tns:sabersiexistecultivos" />
+  </wsdl:message>
+  <wsdl:message name="sabersiexistecultivosSoapOut">
+    <wsdl:part name="parameters" element="tns:sabersiexistecultivosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarplagaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarplaga" />
+  </wsdl:message>
+  <wsdl:message name="insertarplagaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarplagaResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualizarplagaSoapIn">
+    <wsdl:part name="parameters" element="tns:actualizarplaga" />
+  </wsdl:message>
+  <wsdl:message name="actualizarplagaSoapOut">
+    <wsdl:part name="parameters" element="tns:actualizarplagaResponse" />
+  </wsdl:message>
+  <wsdl:message name="eleminarplagaSoapIn">
+    <wsdl:part name="parameters" element="tns:eleminarplaga" />
+  </wsdl:message>
+  <wsdl:message name="eleminarplagaSoapOut">
+    <wsdl:part name="parameters" element="tns:eleminarplagaResponse" />
+  </wsdl:message>
+  <wsdl:message name="llenardgplagaSoapIn">
+    <wsdl:part name="parameters" element="tns:llenardgplaga" />
+  </wsdl:message>
+  <wsdl:message name="llenardgplagaSoapOut">
+    <wsdl:part name="parameters" element="tns:llenardgplagaResponse" />
+  </wsdl:message>
+  <wsdl:message name="sabersiexisteplagaSoapIn">
+    <wsdl:part name="parameters" element="tns:sabersiexisteplaga" />
+  </wsdl:message>
+  <wsdl:message name="sabersiexisteplagaSoapOut">
+    <wsdl:part name="parameters" element="tns:sabersiexisteplagaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarsintomaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarsintoma" />
+  </wsdl:message>
+  <wsdl:message name="insertarsintomaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarsintomaResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualizarsintomaSoapIn">
+    <wsdl:part name="parameters" element="tns:actualizarsintoma" />
+  </wsdl:message>
+  <wsdl:message name="actualizarsintomaSoapOut">
+    <wsdl:part name="parameters" element="tns:actualizarsintomaResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarsintomaSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarsintoma" />
+  </wsdl:message>
+  <wsdl:message name="eliminarsintomaSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarsintomaResponse" />
+  </wsdl:message>
+  <wsdl:message name="llenardgsintomasSoapIn">
+    <wsdl:part name="parameters" element="tns:llenardgsintomas" />
+  </wsdl:message>
+  <wsdl:message name="llenardgsintomasSoapOut">
+    <wsdl:part name="parameters" element="tns:llenardgsintomasResponse" />
+  </wsdl:message>
+  <wsdl:message name="LlenarcultivosSoapIn">
+    <wsdl:part name="parameters" element="tns:Llenarcultivos" />
+  </wsdl:message>
+  <wsdl:message name="LlenarcultivosSoapOut">
+    <wsdl:part name="parameters" element="tns:LlenarcultivosResponse" />
+  </wsdl:message>
+  <wsdl:message name="algoritmodecomparacionSoapIn">
+    <wsdl:part name="parameters" element="tns:algoritmodecomparacion" />
+  </wsdl:message>
+  <wsdl:message name="algoritmodecomparacionSoapOut">
+    <wsdl:part name="parameters" element="tns:algoritmodecomparacionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="detaservicioSoap">
+    <wsdl:operation name="validarusuarios">
+      <wsdl:input message="tns:validarusuariosSoapIn" />
+      <wsdl:output message="tns:validarusuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexisteusuarios">
+      <wsdl:input message="tns:sabersiexisteusuariosSoapIn" />
+      <wsdl:output message="tns:sabersiexisteusuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarusuarios">
+      <wsdl:input message="tns:insertarusuariosSoapIn" />
+      <wsdl:output message="tns:insertarusuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="llenardgusuarios">
+      <wsdl:input message="tns:llenardgusuariosSoapIn" />
+      <wsdl:output message="tns:llenardgusuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarusuarios">
+      <wsdl:input message="tns:actualizarusuariosSoapIn" />
+      <wsdl:output message="tns:actualizarusuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarusuarios">
+      <wsdl:input message="tns:eliminarusuariosSoapIn" />
+      <wsdl:output message="tns:eliminarusuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarcultivo">
+      <wsdl:input message="tns:insertarcultivoSoapIn" />
+      <wsdl:output message="tns:insertarcultivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarcultivo">
+      <wsdl:input message="tns:actualizarcultivoSoapIn" />
+      <wsdl:output message="tns:actualizarcultivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eleminarcultivo">
+      <wsdl:input message="tns:eleminarcultivoSoapIn" />
+      <wsdl:output message="tns:eleminarcultivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="llenardgcultivos">
+      <wsdl:input message="tns:llenardgcultivosSoapIn" />
+      <wsdl:output message="tns:llenardgcultivosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexistecultivos">
+      <wsdl:input message="tns:sabersiexistecultivosSoapIn" />
+      <wsdl:output message="tns:sabersiexistecultivosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarplaga">
+      <wsdl:input message="tns:insertarplagaSoapIn" />
+      <wsdl:output message="tns:insertarplagaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarplaga">
+      <wsdl:input message="tns:actualizarplagaSoapIn" />
+      <wsdl:output message="tns:actualizarplagaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eleminarplaga">
+      <wsdl:input message="tns:eleminarplagaSoapIn" />
+      <wsdl:output message="tns:eleminarplagaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="llenardgplaga">
+      <wsdl:input message="tns:llenardgplagaSoapIn" />
+      <wsdl:output message="tns:llenardgplagaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexisteplaga">
+      <wsdl:input message="tns:sabersiexisteplagaSoapIn" />
+      <wsdl:output message="tns:sabersiexisteplagaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarsintoma">
+      <wsdl:input message="tns:insertarsintomaSoapIn" />
+      <wsdl:output message="tns:insertarsintomaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarsintoma">
+      <wsdl:input message="tns:actualizarsintomaSoapIn" />
+      <wsdl:output message="tns:actualizarsintomaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarsintoma">
+      <wsdl:input message="tns:eliminarsintomaSoapIn" />
+      <wsdl:output message="tns:eliminarsintomaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="llenardgsintomas">
+      <wsdl:input message="tns:llenardgsintomasSoapIn" />
+      <wsdl:output message="tns:llenardgsintomasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Llenarcultivos">
+      <wsdl:input message="tns:LlenarcultivosSoapIn" />
+      <wsdl:output message="tns:LlenarcultivosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="algoritmodecomparacion">
+      <wsdl:input message="tns:algoritmodecomparacionSoapIn" />
+      <wsdl:output message="tns:algoritmodecomparacionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="detaservicioSoap" type="tns:detaservicioSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validarusuarios">
+      <soap:operation soapAction="http://detagavos.org/validarusuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexisteusuarios">
+      <soap:operation soapAction="http://detagavos.org/sabersiexisteusuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarusuarios">
+      <soap:operation soapAction="http://detagavos.org/insertarusuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenardgusuarios">
+      <soap:operation soapAction="http://detagavos.org/llenardgusuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarusuarios">
+      <soap:operation soapAction="http://detagavos.org/actualizarusuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarusuarios">
+      <soap:operation soapAction="http://detagavos.org/eliminarusuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarcultivo">
+      <soap:operation soapAction="http://detagavos.org/insertarcultivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarcultivo">
+      <soap:operation soapAction="http://detagavos.org/actualizarcultivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eleminarcultivo">
+      <soap:operation soapAction="http://detagavos.org/eleminarcultivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenardgcultivos">
+      <soap:operation soapAction="http://detagavos.org/llenardgcultivos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexistecultivos">
+      <soap:operation soapAction="http://detagavos.org/sabersiexistecultivos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarplaga">
+      <soap:operation soapAction="http://detagavos.org/insertarplaga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarplaga">
+      <soap:operation soapAction="http://detagavos.org/actualizarplaga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eleminarplaga">
+      <soap:operation soapAction="http://detagavos.org/eleminarplaga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenardgplaga">
+      <soap:operation soapAction="http://detagavos.org/llenardgplaga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexisteplaga">
+      <soap:operation soapAction="http://detagavos.org/sabersiexisteplaga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarsintoma">
+      <soap:operation soapAction="http://detagavos.org/insertarsintoma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarsintoma">
+      <soap:operation soapAction="http://detagavos.org/actualizarsintoma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarsintoma">
+      <soap:operation soapAction="http://detagavos.org/eliminarsintoma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenardgsintomas">
+      <soap:operation soapAction="http://detagavos.org/llenardgsintomas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Llenarcultivos">
+      <soap:operation soapAction="http://detagavos.org/Llenarcultivos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="algoritmodecomparacion">
+      <soap:operation soapAction="http://detagavos.org/algoritmodecomparacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="detaservicioSoap12" type="tns:detaservicioSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validarusuarios">
+      <soap12:operation soapAction="http://detagavos.org/validarusuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexisteusuarios">
+      <soap12:operation soapAction="http://detagavos.org/sabersiexisteusuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarusuarios">
+      <soap12:operation soapAction="http://detagavos.org/insertarusuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenardgusuarios">
+      <soap12:operation soapAction="http://detagavos.org/llenardgusuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarusuarios">
+      <soap12:operation soapAction="http://detagavos.org/actualizarusuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarusuarios">
+      <soap12:operation soapAction="http://detagavos.org/eliminarusuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarcultivo">
+      <soap12:operation soapAction="http://detagavos.org/insertarcultivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarcultivo">
+      <soap12:operation soapAction="http://detagavos.org/actualizarcultivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eleminarcultivo">
+      <soap12:operation soapAction="http://detagavos.org/eleminarcultivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenardgcultivos">
+      <soap12:operation soapAction="http://detagavos.org/llenardgcultivos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexistecultivos">
+      <soap12:operation soapAction="http://detagavos.org/sabersiexistecultivos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarplaga">
+      <soap12:operation soapAction="http://detagavos.org/insertarplaga" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarplaga">
+      <soap12:operation soapAction="http://detagavos.org/actualizarplaga" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eleminarplaga">
+      <soap12:operation soapAction="http://detagavos.org/eleminarplaga" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenardgplaga">
+      <soap12:operation soapAction="http://detagavos.org/llenardgplaga" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sabersiexisteplaga">
+      <soap12:operation soapAction="http://detagavos.org/sabersiexisteplaga" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarsintoma">
+      <soap12:operation soapAction="http://detagavos.org/insertarsintoma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarsintoma">
+      <soap12:operation soapAction="http://detagavos.org/actualizarsintoma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarsintoma">
+      <soap12:operation soapAction="http://detagavos.org/eliminarsintoma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenardgsintomas">
+      <soap12:operation soapAction="http://detagavos.org/llenardgsintomas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Llenarcultivos">
+      <soap12:operation soapAction="http://detagavos.org/Llenarcultivos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="algoritmodecomparacion">
+      <soap12:operation soapAction="http://detagavos.org/algoritmodecomparacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="detaservicio">
+    <wsdl:port name="detaservicioSoap" binding="tns:detaservicioSoap">
+      <soap:address location="http://192.168.1.36:8095/detaservicio.asmx" />
+    </wsdl:port>
+    <wsdl:port name="detaservicioSoap12" binding="tns:detaservicioSoap12">
+      <soap12:address location="http://192.168.1.36:8095/detaservicio.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
